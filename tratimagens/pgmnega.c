@@ -55,6 +55,6 @@ int main (int argc, char *argv[]){
     }
 
 
-    fclose(saida);
+    fclose(saida);  //inserindo comentários para testar o git
 
 }
