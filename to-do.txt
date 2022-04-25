@@ -1,0 +1,8 @@
+- ponteiros para funções
+- enum
+- arquivo binário
+- acesso sequencial
+- funções com argumentos variáveis
+- strings diversos
+- compilação condicional
+- código em vários arquivos
