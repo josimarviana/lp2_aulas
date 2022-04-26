@@ -14,6 +14,8 @@ void enqueue(int i){
     }
     fila[u] = i;
     u++;
+    // fila[u++] = i; // ou assim na mesma instrução
+    return;
 }
 
 int dequeue(void){
@@ -23,7 +25,7 @@ int dequeue(void){
     }
     p++;
     return fila[p-1];
-
+    // return fila[p++]; // ou assim na mesma instrução
 }
 
 void mostra(void){
@@ -39,9 +41,11 @@ int main(int argc, char *argv[]){
 
     mostra();
     enqueue(4);
+    mostra();
     enqueue(5);
     mostra();
     dequeue();
+    mostra();
     enqueue(7);
     mostra();
 

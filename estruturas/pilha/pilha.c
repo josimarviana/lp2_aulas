@@ -13,16 +13,20 @@ void push(int i){
     }
     pilha[t] = i;
     t++;
+     // pilha[t++] = i; // ou assim na mesma instrução
+    return;
 }
 
 int pop(void){
-    t--;
+
     if(t<0){
         printf("A pilha está vazia\n");
         return 0;
     }
-
-    return pilha[t];
+    t++;
+    return pilha[t-1];
+    // return pilha[t++]; // ou assim na mesma instrução
+}
 
 }
 

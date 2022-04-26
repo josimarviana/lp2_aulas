@@ -6,3 +6,10 @@
 - strings diversos
 - compilação condicional
 - código em vários arquivos
+
+- Filas
+- Listas encadeadas
+- Pilhas
+- Árvores binárias
+- Método de ordenação
+- Análise e complexidade de algoritmos
