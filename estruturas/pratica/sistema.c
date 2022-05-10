@@ -18,7 +18,7 @@ typedef struct ordem_servico{
 }tOS, *pOS;
 
 pOS lista, ultimo;
-int cadastrar(int nOS);
+int cadastrar(int,  char *);
 int entrar();
 pOS verificar(pOS );
 pOS consultar(pOS , int );
@@ -28,7 +28,7 @@ int salvar(pOS );
 pOS carregar();
 int menu();       
 
-int cadastrar(int nOS){
+int cadastrar(int nOS, char *servico){
     
     pOS novaOS = malloc(sizeof(tOS));
     if(!novaOS){
@@ -42,6 +42,7 @@ int cadastrar(int nOS){
         novaOS->anterior=ultimo;
     }
     novaOS->nOS = nOS;
+    strcpy(novaOS->servico, servico);
     printf("\nOS %d cadastrada com sucesso!", novaOS->nOS);
     ultimo = novaOS;
     return 0;
@@ -49,11 +50,16 @@ int cadastrar(int nOS){
 
 int entrar(){
     int nOS;
+    char servico[30];
     printf("\nDigite o n. da OS: ");
     scanf("%d", &nOS);
 
-    if(!consultar(lista, nOS))
-        cadastrar(nOS);
+    if(!consultar(lista, nOS)){
+        getchar();
+        printf("\nDigite o serviço da OS: ");
+        scanf("%s", &servico);
+        cadastrar(nOS, servico);
+    }
     else    
         printf("\nEssa OS já está registrada");
 }
@@ -69,7 +75,7 @@ pOS consultar(pOS p, int OSprocurada){
 
     while (p){
         if(p->nOS==OSprocurada){
-            printf("OS %d encontrada", OSprocurada);
+            printf("OS %d encontrada, serviço executado: %s", p->nOS, p->servico);
             return p;
         }
         p=p->proximo;
@@ -105,7 +111,7 @@ int excluir(pOS p){
 int imprimir(pOS p){
     printf("OSs: "); 
     while (p){
-        printf("%d ", p->nOS);
+        printf("%d - %s ; ", p->nOS, p->servico);
         p=p->proximo;
     }
 }
@@ -119,7 +125,8 @@ int salvar(pOS p){
     }
      
     while (p){
-        fprintf(arquivo,"%d",p->nOS);
+        fprintf(arquivo,"%d ",p->nOS);
+        fputs(p->servico, arquivo);
         putc('\n', arquivo);
         qtdeRegistros++;
         p=p->proximo;
@@ -130,6 +137,7 @@ int salvar(pOS p){
 
 pOS carregar(){
     int qtdeRegistros=0;
+    char servico[30];
     FILE *arquivo = fopen("saida.dat", "r");
     if(!arquivo){
         printf("\nNão foi possível abrir o arquivo para leitura");
@@ -138,11 +146,12 @@ pOS carregar(){
 
     while (1){
         int nOS;
-        if(fscanf(arquivo, "%d", &nOS)>0 && !feof(arquivo)){
+        if(fscanf(arquivo, "%d ", &nOS)>0 && !feof(arquivo)){
+            fgets(servico, 30, arquivo);
             qtdeRegistros++;
         }else
             break;
-        cadastrar(nOS);
+        cadastrar(nOS, servico);
 
         if(feof(arquivo))
             break;
@@ -157,7 +166,7 @@ int menu(){
 
     int opcao=1;
     do{
-        system("clear || cls");
+  //      system("clear || cls");
         printf("\n\tSistema de OSs\t\n");
         printf("\n1. Cadastrar");
         printf("\n2. Consultar");
