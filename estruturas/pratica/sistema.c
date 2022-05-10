@@ -18,8 +18,15 @@ typedef struct ordem_servico{
 }tOS, *pOS;
 
 pOS lista, ultimo;
-
-
+int cadastrar(int nOS);
+int entrar();
+pOS verificar(pOS );
+pOS consultar(pOS , int );
+int excluir(pOS );
+int imprimir(pOS );
+int salvar(pOS );
+pOS carregar();
+int menu();       
 
 int cadastrar(int nOS){
     
@@ -44,13 +51,21 @@ int entrar(){
     int nOS;
     printf("\nDigite o n. da OS: ");
     scanf("%d", &nOS);
-    cadastrar(nOS);
+
+    if(!consultar(lista, nOS))
+        cadastrar(nOS);
+    else    
+        printf("\nEssa OS já está registrada");
 }
 
-pOS consultar(pOS p){
-    int OSprocurada;
+pOS verificar(pOS p){
+    int nOS;
     printf("\nDigite o n. da OS procurada: ");
-    scanf("%d", &OSprocurada);
+    scanf("%d", &nOS);
+    return consultar(p, nOS);
+}
+
+pOS consultar(pOS p, int OSprocurada){
 
     while (p){
         if(p->nOS==OSprocurada){
@@ -65,7 +80,7 @@ pOS consultar(pOS p){
 }
 
 int excluir(pOS p){
-        pOS OSemremocao = consultar(p);
+        pOS OSemremocao = verificar(p);
         if(OSemremocao){
             getchar();
             printf("\nTem certeza que deseja excluir a OS %d (y/n)? ", OSemremocao->nOS);
@@ -73,8 +88,10 @@ int excluir(pOS p){
             if(resposta == 'y' || resposta == 'Y'){
 
                 pOS OSanterior = OSemremocao->anterior;
-                if(!OSanterior)
+                if(!OSanterior){
                     lista=OSemremocao->proximo;
+                    lista->anterior=NULL;
+                }
                 else{
                     OSanterior->proximo = OSemremocao->proximo;
                     OSemremocao->proximo->anterior = OSanterior;
@@ -121,9 +138,10 @@ pOS carregar(){
 
     while (1){
         int nOS;
-        if(fscanf(arquivo, "%d", &nOS)>0){
+        if(fscanf(arquivo, "%d", &nOS)>0 && !feof(arquivo)){
             qtdeRegistros++;
-        };
+        }else
+            break;
         cadastrar(nOS);
 
         if(feof(arquivo))
@@ -159,7 +177,7 @@ int menu(){
             entrar();
             break;
         case 2:
-            consultar(lista);
+            verificar(lista);
             break;
         case 3:
             excluir(lista);
