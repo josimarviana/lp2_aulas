@@ -45,6 +45,16 @@ int buscaDFS(Arvore arv, int numero){
     return buscaDFS(arv->esq, numero) || buscaDFS(arv->dir, numero);
 }
 
+/*
+def busca_dfs(node, numero):
+    if node is None:
+        return False
+    if node.dados == numero:
+        return True
+    return busca_dfs(node.esq, numero) or \
+        busca_dfs(node.dir, numero)
+*/
+
 int main (int argc, char *argv[]){
 
     Arvore arvore;
