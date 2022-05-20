@@ -28,7 +28,6 @@ int pop(void){
     // return pilha[t++]; // ou assim na mesma instrução
 }
 
-}
 
 void mostra(void){
     printf("\n");
@@ -47,7 +46,7 @@ int main(int argc, char *argv[]){
     push(6);
     push(7);
     mostra();
-    pop();
+    printf("\nElemento retirado: %d", pop());
     push(8);
     mostra();
     return 0;

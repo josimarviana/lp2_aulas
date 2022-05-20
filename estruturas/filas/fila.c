@@ -44,9 +44,10 @@ int main(int argc, char *argv[]){
     mostra();
     enqueue(5);
     mostra();
-    dequeue();
+    printf("\nElemento retirado: %d", dequeue());
     mostra();
     enqueue(7);
+    printf("\nElemento retirado: %d", dequeue());
     mostra();
 
     return 0;
