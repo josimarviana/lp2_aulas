@@ -100,7 +100,8 @@ int excluir(pOS p){
                 }
                 else{
                     OSanterior->proximo = OSemremocao->proximo;
-                    OSemremocao->proximo->anterior = OSanterior;
+                    if (OSemremocao->proximo)
+                        OSemremocao->proximo->anterior = OSanterior;
                 }    
                 printf("\nOS %d removida com sucesso!", OSemremocao->nOS);
             }
