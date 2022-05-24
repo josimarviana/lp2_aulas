@@ -19,3 +19,4 @@ QT += gui widgets
 qmake
 make
 */
+
