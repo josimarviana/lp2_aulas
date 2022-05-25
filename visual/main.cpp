@@ -13,10 +13,20 @@ int main(int argc, char **argv){
 }
 
 /*
+1-- Instalar o qtcreator
 sudo apt install qtcreator build-essential qt5-qmake qtbase5-dev
-qmake -project
-QT += gui widgets
-qmake
-make
-*/
 
+2-- Criar o projeto
+qmake -project
+
+3-- Adicionar essa linha no arquivo *.pro, logo abaixo de INCLUDEPATH
+QT += gui widgets
+
+4-- Executar o qmake
+qmake
+
+5-- Compilar o programa
+make
+
+6-- Executar o programa e ver se a janela aparece
+*/
