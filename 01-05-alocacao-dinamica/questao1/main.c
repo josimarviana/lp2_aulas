@@ -8,10 +8,10 @@
 #define TAM 10
 int main (int argc, char ** argv){
     float * pfloat = (float *) malloc(sizeof (float)*TAM), media=0.0;
-    for (int i=0;i<TAM;i++){
+    for (int i=0;i<TAM;i++, pfloat++){
         printf("Digite o %do número: ", i+1);
-        scanf("%f", &pfloat[i]);
-        media+=pfloat[i];
+        scanf("%f", pfloat);
+        media+=*pfloat;
     }
     printf ("Média: %.2f", media/=TAM);
  }
