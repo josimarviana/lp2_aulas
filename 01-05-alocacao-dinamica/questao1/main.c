@@ -4,8 +4,14 @@
 //Use alocação dinâmica de memória.
 
 #include "stdio.h"
-
+#include "stdlib.h"
+#define TAM 10
 int main (int argc, char ** argv){
-    
-    printf ("teste");
-}
+    float * pfloat = (float *) malloc(sizeof (float)*TAM), media=0.0;
+    for (int i=0;i<TAM;i++){
+        printf("Digite o %do número: ", i+1);
+        scanf("%f", &pfloat[i]);
+        media+=pfloat[i];
+    }
+    printf ("Média: %.2f", media/=TAM);
+ }
