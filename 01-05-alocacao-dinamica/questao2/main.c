@@ -9,6 +9,7 @@
 //x = 35;
 //Resultado = 5, 7
 
+#include <stdio.h>
 int main (int argc, char ** argv){
 
     printf ("teste");
