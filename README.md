@@ -1,1 +1,1 @@
-# Aulas de Programação II com C
+# Exercícios das aulas de Programação II com C
