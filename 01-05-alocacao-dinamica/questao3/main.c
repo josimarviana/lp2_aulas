@@ -10,13 +10,12 @@
 #define TAM 10
 int main (int argc, char ** argv) {
     int qtdv1=0, qtdv2=0;
-    printf("Informe a quantidade de inteiros no vetor 1: ");
+    printf("Informe a quantidade de inteiros para cada vetor: ");
     scanf("%d", &qtdv1);
-    printf("Informe a quantidade de inteiros no vetor 2: ");
-    scanf("%d", &qtdv2);
+    qtdv2 = qtdv1; //para simplificar inferimos que os vetores tem o mesmo tamanho
 
     int *pvetorint1 = (int *) malloc(sizeof(int )* qtdv1);
-    int *pvetorint2 = (int *) malloc(sizeof(int )* qtdv1);
+    int *pvetorint2 = (int *) malloc(sizeof(int )* qtdv2);
     int *pvetorint3 = (int *) malloc(sizeof(int )* (qtdv1+qtdv2));
 
     for (int i = 0; i < qtdv1; i++) {
