@@ -20,7 +20,7 @@ int main (int argc, char ** argv) {
     for (int i = 0; i < n*n; i++) {
         //printf("Digite o %do número do vetor 1: ", i+1);
         //scanf("%d", &pInt[i]);
-        pInt[i] = rand() % 100;
+        pInt[i] = rand() % 2;
     }
 
     for (int i = 0; i < n*n; i++) {
