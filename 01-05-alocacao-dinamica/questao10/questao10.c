@@ -1,3 +1,12 @@
+// Por que o código abaixo está errado?
+/*void swap(int *i, int *j) {
+    int *tmp;
+    *tmp = *i;
+    *i = *j;
+    *j = *tmp;
+}*/
+//Como corrigir a função swap?
+
 #include <stdio.h>
 #include <stdlib.h>
 void swap(int *i, int *j) {

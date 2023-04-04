@@ -1,3 +1,7 @@
+// Dada uma sequência com n números de qualquer dos tipos int ou float, com 1 <= n <= 100, escreva um programa
+//que calcule a soma de todos os números int e o produto de todos os números float. Utilize alocação dinâmica de
+//memória.
+
 #include <stdio.h>
 #include <stdlib.h>
 #define TAM 5

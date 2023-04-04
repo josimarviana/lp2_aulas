@@ -1,3 +1,13 @@
+// Escreva um algoritmo em linguagem C que atenda os seguintes requisitos:
+// Crie um registro para armazenar o seu Nome Completo e sua matrícula.
+// Solicite ao usuário que digite o sua matrícula e o seu Nome Completo.
+// Crie um ponteiro para o registro.
+// Através do ponteiro para o registro verifique se a matrícula digitado é um número par ou ímpar e informe a
+//resposta na tela.
+// Através do ponteiro para o registro imprima o Nome Completo informado de traz para frente, invertido. Por
+//exemplo:
+//Josimar Viana -> anaiV ramisoJ
+
 #include <stdio.h>
 #include <stdlib.h>
 

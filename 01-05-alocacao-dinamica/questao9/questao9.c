@@ -1,3 +1,8 @@
+// Escreva um programa em C que leia 10 números inteiros em um vetor.
+// Em seguida, o seu programa deve encontrar
+//a posição do maior elemento do vetor e imprimir esta posição.
+// Utilize alocação dinâmica de memória.
+
 #include <stdio.h>
 #include <stdlib.h>
 #define TAM 3
