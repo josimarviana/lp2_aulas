@@ -9,7 +9,6 @@
 // Por fim, leia um inteiro x do usuário e informe quais os alunos que estão cursando o semestre x.
 
 #include "stdio.h"
-#include "stdlib.h"
 #define TAM 100
 typedef struct registro_aluno{
     char nome[30];
