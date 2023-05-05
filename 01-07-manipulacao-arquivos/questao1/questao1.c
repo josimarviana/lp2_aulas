@@ -40,6 +40,8 @@ int main (int argc, char ** argv){
             pos++;
         }while(ch != '\n'); //até que seja alcançado o fim da linha
         //fscanf(arquivo, "%s", alunos[qtde].nome);
+        //fscanf(arquivo, "%s ", alunos[qtde].nome); // o espaço depois da máscara no scanf consome os próximos caracteres, espaço \t e \n
+        //fscanf(arquivo, "%[^\n]", alunos[qtde].nome); // lê tudo desconsiderando a quebra de linha
         fscanf(arquivo, "%d", &alunos[qtde].semestre);
         fscanf(arquivo, "%f", &alunos[qtde].rendimento);
         fgetc(arquivo);
